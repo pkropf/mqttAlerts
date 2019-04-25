@@ -1,0 +1,13 @@
+[Unit]
+Description=MQTT Alerts
+Wants=mqtt2sms
+After=network.target mqtt2sms
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/mqttAlerts.sh
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
